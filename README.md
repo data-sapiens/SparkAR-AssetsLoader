@@ -59,3 +59,6 @@ AssetsLoader({
 });
 ```
 Note: If you are using a pattern all the matches will be stored in a array.
+
+## Data Sapiens
+If you find this useful, make sure to follow [Data Sapiens on Instagram](https://www.instagram.com/datasapiens.life/) for more.
