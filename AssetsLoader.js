@@ -19,9 +19,9 @@ export const AssetsLoader = ({
 }) => {
 	return new Promise(resolve => {
 		Promise.all([
-	   		Promise.all(objects.map(obj => obj.includes('*') ? Scene.root.findByPath(obj) : Scene.root.findFirst(obj))),
-	   		Promise.all(materials.map(mat => (mat.includes('*') ? Materials.findUsingPattern(mat) : Materials.findFirst(mat)))),
-	   		Promise.all(textures.map(tex => (tex.includes('*') ? Textures.findUsingPattern(tex) : Textures.findFirst(tex)))),
+	   		Promise.all(objects.map(obj => obj.indexOf('*') > -1 ? Scene.root.findByPath(obj) : Scene.root.findFirst(obj))),
+	   		Promise.all(materials.map(mat => mat.indexOf('*') > -1 ? Materials.findUsingPattern(mat) : Materials.findFirst(mat))),
+	   		Promise.all(textures.map(tex => tex.indexOf('*') > -1 ? Textures.findUsingPattern(tex) : Textures.findFirst(tex))),
 	   	]).then( assets => {
 	   		resolve({
 		   		objects: handleLoadedAssetGroup(objects, assets[0]),
